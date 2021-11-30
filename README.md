@@ -1,1 +1,79 @@
-Data_Based_Security
+## Data_Based_Security
+
+------
+
+### EDA
+
+- **Static PE file Analysis** [Input file : File Directory / Output file : pe_features.csv]
+  - filename
+  - e_magic
+  - e_lfanew
+  - e_minalloc
+  - e_ovno
+  - Signature
+  - Machine
+  - NumberOfSections
+  - TimeDateStamp
+  - PointerToSymbolTable
+  - NumberOfSymbols
+  - SizeOfOptionalHeader
+  - Characteristics
+  - Magic
+  - SizeOfCode
+  - AddressOfEntryPoint
+  - BaseOfCode
+  - ImageBase
+  - EntryPoint
+  - SectionAlignment
+  - FileAlignment
+  - SizeOfImage
+  - SizeOfHeaders
+  - CheckSum
+  - Subsystem
+  - NumberOfRvaAndSizes
+  - CompareNumberOfSections
+  - .textSectionName
+  - .textSectionVirtualSize
+  - .textSection|VirtualSize-SizeOfRawData|
+  - .textSectionVirtualAddress
+  - .textSectionSizeOfRawData
+  - .textSectionPointerToRawData
+  - .textSectionCharacteristics
+  - .textSectionEntropy
+  - .dataSectionName
+  - .dataSectionVirtualSize
+  - .dataSection|VirtualSize-SizeOfRawData|
+  - .dataSectionVirtualAddress
+  - .dataSectionSizeOfRawData
+  - .dataSectionPointerToRawData
+  - .dataSectionCharacteristics
+  - .dataSectionEntropy
+  - .rsrcSectionName
+  - .rsrcSectionVirtualSize
+  - .rsrcSection|VirtualSize-SizeOfRawData|
+  - .rsrcSectionVirtualAddress
+  - .rsrcSectionSizeOfRawData
+  - .rsrcSectionPointerToRawData
+  - .rsrcSectionCharacteristics
+  - .rsrcSectionEntropy
+  - .rdataSectionName
+  - .rdataSectionVirtualSize
+  - .rdataSection|VirtualSize-SizeOfRawData|
+  - .rdataSectionVirtualAddress
+  - .rdataSectionSizeOfRawData
+  - .rdataSectionPointerToRawData
+  - .rdataSectionCharacteristics
+  - .rdataSectionEntropy
+  - .relocSectionName
+  - .relocSectionVirtualSize
+  - .relocSection|VirtualSize-SizeOfRawData|
+  - .relocSectionVirtualAddress
+  - .relocSectionSizeOfRawData
+  - .relocSectionPointerToRawData
+  - .relocSectionCharacteristics
+  - .relocSectionEntropy
+  - TotalNumberOfFunctionInIAT
+  - TotalNumberOfFunctionInEAT
+  - exist_rich_header
+  - raw_rich_header
+

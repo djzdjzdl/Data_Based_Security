@@ -23,7 +23,7 @@ class Save_Pe_Feature:
         '.relocSectionPointerToRawData', '.relocSectionCharacteristics', '.relocSectionEntropy',
         'TotalNumberOfFunctionInIAT', 'TotalNumberOfFunctionInEAT',
         #Added
-        'exist_rich_header', 'raw_rich_header'
+        'rich_header_is_exist', 'raw_rich_header', 'MajorLinkerVersion', 'MinorLinkerVersion', 'SizeOfInitializedData', 'SizeOfUninitializedData', 'SizeOfStackReserve', 'DllCharacteristics'
     ]
 
     #Train data based data analysis
@@ -31,7 +31,7 @@ class Save_Pe_Feature:
     NULL_ROW = [0 for x in COLS]
 
     def __init__(self):
-
+        print("[+] Saving PE File Features")
         files = os.listdir(Save_Pe_Feature.file_path)
         with open('./pe_features.csv', 'w+', newline='') as csvs:
             wp = csv.writer(csvs)
@@ -45,6 +45,7 @@ class Save_Pe_Feature:
                     feature = Save_Pe_Feature.NULL_ROW
                     feature[0] = file
                 wp.writerow(feature)
+        print("[-] Saving PE File Features - Done")
         Save_Pe_Feature.Save_Pe_Label()
 
     #Extract from PE Features 
@@ -180,16 +181,53 @@ class Save_Pe_Feature:
             total_eat_number = 0
             row.extend([total_eat_number])
         
+        #add Linker Version, Size of Init / Uninitialized Data, Size of Stack Reserve, DllCharacteristics
         try:
             tmp = pe.parse_rich_header()
             row.extend([ 1, tmp['raw_data'] ])
         except:
             row.extend([0,'None'])
 
+        #Add Major Linker Version
+        try:
+            row.extend([pe.OPTIONAL_HEADER.MajorLinkerVersion])
+        except:
+            row.extend(["None"])
+        
+        #Add Minor Linker Version
+        try:
+            row.extend([pe.OPTIONAL_HEADER.MinorLinkerVersion])
+        except:
+            row.extend(["None"])
+
+        #Add Size of initialized data
+        try:
+            row.extend([pe.OPTIONAL_HEADER.SizeOfInitializedData])
+        except:
+            row.extend(["None"])
+
+        #Add Size of uninitialized data
+        try:
+            row.extend([pe.OPTIONAL_HEADER.SizeOfUninitializedData])
+        except:
+            row.extend(["None"])
+        
+        #Add Size of stack reserve
+        try:
+            row.extend([pe.OPTIONAL_HEADER.SizeOfStackReserve])
+        except:
+            row.extend(["None"])
+        
+        #Add DLL Characteristics
+        try:
+            row.extend([pe.OPTIONAL_HEADER.DllCharacteristics])
+        except:
+            row.extend(["None"])
 
         return row
 
     def Save_Pe_Label():
+        print("[+] Adding Labels")
         with open('./train_label.csv', 'r') as f:
             with open('./pe_features.csv', 'r') as ff:
                 with open('./new_pe_features.csv', 'w+', newline='') as fff:
@@ -204,6 +242,7 @@ class Save_Pe_Feature:
                                 break
         os.remove('./pe_features.csv')
         shutil.move('./new_pe_features.csv','./pe_features.csv')
+        print("[-] Adding Labels - Done")
 
 if __name__ == "__main__":
     #Making Static PE features

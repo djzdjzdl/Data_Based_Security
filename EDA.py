@@ -28,8 +28,8 @@ class Save_Pe_Feature:
 
     #Train data based data analysis
     #file_path = './train_data'
-    file_path = './validation_data'
-    #file_path = './test_data'
+    #file_path = './validation_data'
+    file_path = './test_data'
     NULL_ROW = [0 for x in COLS]
 
     def __init__(self, filename, label):
@@ -231,7 +231,7 @@ class Save_Pe_Feature:
 
     def Save_Pe_Label(filename, label):
         print("[+] Adding Labels")
-        if label is not '0':
+        if label != '0':
             with open(label, 'r') as f:
                 with open(filename, 'r') as ff:
                     with open('./new_pe_features.csv', 'w+', newline='') as fff:

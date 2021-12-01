@@ -250,30 +250,35 @@ class Save_Pe_Feature:
             print("[+] This is Test file")
         print("[-] Adding Labels - Done")
 
+
+class Making_Pe_Features:
+
+    def __init__(self):
+        '''
+        For Train Set
+        './train_data'
+        './pe_features.csv'
+        './train_label.csv'
+        '''
+        Save_Pe_Feature('./pe_features.csv', 'train_label.csv')
+
+        '''
+        For Validation Set
+        './validation_data'
+        './valiation_features.csv'
+        './valiation_label.csv'
+        '''
+        Save_Pe_Feature('./validation_features.csv', 'validation_label.csv')
+
+        '''
+        For Test Set
+        './test_data'
+        './test_features.csv'
+        '''
+        Save_Pe_Feature('./test_features.csv', '0')
+
+
+
 if __name__ == "__main__":
-    '''
-    For Train Set
-    './train_data'
-    './pe_features.csv'
-    './train_label.csv'
-    '''
-    #Save_Pe_Feature('./pe_features.csv', 'train_label.csv')
-
-    '''
-    For Validation Set
-    './validation_data'
-    './valiation_features.csv'
-    './valiation_label.csv'
-    '''
-    #Save_Pe_Feature('./validation_features.csv', 'validation_label.csv')
-
-    '''
-    For Test Set
-    './test_data'
-    './test_features.csv'
-    '''
-    Save_Pe_Feature('./test_features.csv', '0')
-
-    #Making Static PE features
-    
+    Making_Pe_Features()
     

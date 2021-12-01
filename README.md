@@ -76,4 +76,10 @@
   - TotalNumberOfFunctionInEAT
   - exist_rich_header
   - raw_rich_header
+  - MajorLinkerVersion
+  - MinorLinkerVersion
+  - SizeOfInitializedData
+  - SizeOfUninitializedData
+  - SizeOfStackReserve
+  - DllCharacteristics
 

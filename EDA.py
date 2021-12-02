@@ -27,12 +27,11 @@ class Save_Pe_Feature:
     ]
 
     #Train data based data analysis
-    #file_path = './train_data'
-    #file_path = './validation_data'
-    file_path = './test_data'
+    file_path = ''
     NULL_ROW = [0 for x in COLS]
 
-    def __init__(self, filename, label):
+    def __init__(self, filename, label, using_path):
+        Save_Pe_Feature.file_path = using_path
         print("[+] Saving PE File Features")
         files = os.listdir(Save_Pe_Feature.file_path)
         with open(filename, 'w+', newline='') as csvs:
@@ -260,7 +259,7 @@ class Making_Pe_Features:
         './pe_features.csv'
         './train_label.csv'
         '''
-        Save_Pe_Feature('./pe_features.csv', 'train_label.csv')
+        Save_Pe_Feature('./pe_features.csv', 'train_label.csv', './train_data')
 
         '''
         For Validation Set
@@ -268,14 +267,14 @@ class Making_Pe_Features:
         './valiation_features.csv'
         './valiation_label.csv'
         '''
-        Save_Pe_Feature('./validation_features.csv', 'validation_label.csv')
+        Save_Pe_Feature('./validation_features.csv', 'validation_label.csv', './validation_data')
 
         '''
         For Test Set
         './test_data'
         './test_features.csv'
         '''
-        Save_Pe_Feature('./test_features.csv', '0')
+        Save_Pe_Feature('./test_features.csv', '0', './test_data')
 
 
 

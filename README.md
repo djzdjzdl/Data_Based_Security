@@ -1,6 +1,19 @@
-## Data_Based_Security
+# Data_Based_Security
 
-------
+### Overview
+
+- Exploratory Dataset Analysis & Malware detection usin boost algorithm
+- Use 76 Static Features
+
+<br/>
+
+### how to run?
+
+```
+python main.py
+```
+
+<br/>
 
 ### EDA [Data Refining]
 
@@ -83,7 +96,7 @@
   - SizeOfStackReserve
   - DllCharacteristics
 
-
+<br/>
 
 ### Malware_Classifier [Train & Validation & Test with Malware features]
 
@@ -94,7 +107,7 @@
   - lgbm
   - catboost
 
-
+<br/>
 
 - **Code Explanation**
   - **Model** class [Making each Trained models & Saving each models]
@@ -121,7 +134,7 @@
 
     - **Check_Describe** function [Describe Dataset x]
 
-      
+      <br/>
 
   - **Model_Validation** class [Get Scores with Validation Dataset using each models]
 
@@ -135,7 +148,7 @@
 
     - **Check_Catboost** function [Get score catboost model with Validation dataset]
 
-      
+      <br/>
 
   - **Model_Test** class [Get prediction with Test Dataset using best models]
 
